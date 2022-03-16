@@ -1,18 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
+import Node from './Node'
 
-export class Grid extends Component {
-constructor(){
-    super();
-    this.state={
-        table: []
-    };
-}
-
-  render() {
-    return (
-      <div>Grid</div>
-    )
-  }
+const Grid = ({ table }) => {
+  return (
+    <div className='pb-5'>
+    <table className='w-100'>
+        {table.map((row) => {
+            return (
+                <tr>
+                {row.map((node) => {
+                    return (
+                        <Node />
+                    );
+                })}
+                </tr>
+            );
+        })}
+    
+    </table>
+    </div>
+  )
 }
 
 export default Grid
