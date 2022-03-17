@@ -7,10 +7,7 @@ const nodeStyle = {
 const Node = ({ element, handleClick, mousedown, mouseup, handleEnter }) => {
 
   let eleStyle;
-  if (element.isBlank){
-    eleStyle = 'bg-light border';
-  }
-  else if (element.isStart) {
+  if (element.isStart) {
     eleStyle = 'bg-success border'
   }
   else if (element.isEnd) {
@@ -22,13 +19,10 @@ const Node = ({ element, handleClick, mousedown, mouseup, handleEnter }) => {
   else if (element.isPath) {
     eleStyle = 'bg-primary border-primary'
   }
-  else if (element.isVisited) {
-    eleStyle = 'bg-secondary border'
+  else if (element.isBlank){
+    eleStyle = 'bg-light border';
   }
-  else if (element.isQueued) {
-    eleStyle = 'bg-warning border'
-  }
-
+  
   return (
     <td
     className={ eleStyle }
