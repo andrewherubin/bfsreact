@@ -1,22 +1,29 @@
 import React from 'react'
 import Node from './Node'
 
-const Grid = ({ table }) => {
+const Grid = ({ table, handleClick, handleEnter, mouseup, mousedown }) => {
   return (
-    <div className='pb-5'>
+    <div className='pb-5' onMouseDown={ mousedown } onMouseUp={ mouseup }>
     <table className='w-100'>
+        <tbody>
         {table.map((row) => {
             return (
-                <tr>
+                <tr draggable={false} onMouseDown={ mousedown } onMouseUp={ mouseup } >
                 {row.map((node) => {
                     return (
-                        <Node />
+                        <Node
+                        element={ node }
+                        handleClick={ handleClick }
+                        handleEnter={ handleEnter }
+                        mouseup={ mouseup }
+                        mousedown={ mousedown }
+                        />
                     );
                 })}
                 </tr>
             );
         })}
-    
+        </tbody>
     </table>
     </div>
   )
